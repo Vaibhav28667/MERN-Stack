@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie ticket booking</title>
+</head>
+
+<body>
+
+    <h1>Movie ticket booking</h1>
+    <form>
+
+        <label for="">Full Name</label>
+        <input type="text" placeholder="Enter your full name" required minlength="3">
+        <br><br>
+        <label for="">Email Address</label>
+        <input type="email" placeholder="Enter your email address" required>
+        <br><br>
+
+        <label for="">Phone No.</label>
+        <input type="number" placeholder="Enter your contact number" required>
+        <br><br>
+
+        <label for="">Number of Tickets</label>
+        <input type="number" min="1" placeholder="No. of tickets">
+
+        <br><br>
+
+        <label for="">Select Movie</label>
+        <select>
+            <option>Inception</option>
+            <option>The Matrix</option>
+            <option>Avatar</option>
+            <option>Interstellar</option>
+        </select>
+
+        <br><br>
+
+        <label for="">Movie Date</label>
+        <input type="date">
+
+        <br><br>
+
+        <label for="">Select Theatre</label>
+        <input type="text" list="theatre" placeholder="Theatre Name">
+
+        <datalist id="theatre">
+            <option>PVR Cinemas</option>
+            <option>Inox Multiplexes</option>
+            <option>Fun Cinemas</option>
+            <option>Cinepolis</option>
+        </datalist>
+
+        <br><br>
+
+        <label for="">Select Show Time</label>
+        <input type="radio" name="showtime">10:00 AM
+        <input type="radio" name="showtime">2:00 PM
+        <input type="radio" name="showtime">6:00 PM
+        <input type="radio" name="showtime">9:00 PM
+        <br><br>
+
+        <label for="">Seat Preference</label>
+        <select>
+            <option>Front Row</option>
+            <option>Middle Section</option>
+            <option>Back Row</option>
+            <option>Corner Seats</option>
+            <option>Any Available</option>
+        </select>
+        <br><br>
+
+        <label for="">Ticket Price</label>
+        <select>
+            <option>Standard - ₹250</option>
+            <option>Premium - ₹350</option>
+            <option>Recliner - ₹500</option>
+            <option>VIP - ₹700</option>
+        </select>
+        <br><br>
+
+        <input type="checkbox" required>
+        <label for="">I Accept Movie Ticket Terms & Conditions</label>
+
+        <br><br>
+        <details>
+            <summary>Terms & Conditions</summary>
+            <p>By booking this ticket, you agree to the movie theatre's terms and conditions.</p>
+        </details>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+
+</html>
