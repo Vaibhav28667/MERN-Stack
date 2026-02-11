@@ -1,179 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EventHub - Professional Event Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventora | Premium Event Management</title>
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 </head>
 
-<body class="font-sans text-gray-800">
+<body class="bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100 text-gray-800">
 
-    <!-- ================= HEADER ================= -->
-    <header class="bg-gradient-to-r from-purple-600 to-purple-800 shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- ================= NAVBAR ================= -->
+    <header class="fixed w-full z-50 bg-gradient-to-r from-violet-700 to-purple-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-white">
 
-            <!-- Logo -->
-            <div class="text-2xl font-bold text-white flex items-center gap-2">
-                <i class="fas fa-calendar-alt"></i> EventHub
-            </div>
+            <h1 class="text-2xl font-bold flex items-center gap-2">
+                <i class="fas fa-calendar-check"></i> Eventora
+            </h1>
 
-            <!-- Desktop Menu -->
-            <nav class="hidden md:flex space-x-8 text-white font-medium items-center">
-                <a href="#hero" class="hover:text-gray-200">Home</a>
-                <a href="#gallery" class="hover:text-gray-200">Events</a>
-                <a href="#services" class="hover:text-gray-200">Services</a>
-                <a href="#contact" class="hover:text-gray-200">Contact</a>
-                <a href="#"
-                    class="bg-black text-purple-400 px-5 py-2 rounded-full font-semibold hover:bg-gray-800 transition">
-                    Book Now
-                </a>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#events" class="hover:text-gray-200 transition">Events</a>
+                <a href="#about" class="hover:text-gray-200 transition">About</a>
+                <a href="#services" class="hover:text-gray-200 transition">Services</a>
+                <a href="#reviews" class="hover:text-gray-200 transition">Reviews</a>
+                <a href="#contact" class="hover:text-gray-200 transition">Contact</a>
             </nav>
 
-            <!-- Mobile Button -->
-            <button id="menuBtn" class="md:hidden text-white text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
-
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-purple-700 text-white px-6 pb-6 space-y-4">
-            <a href="#hero" class="block">Home</a>
-            <a href="#gallery" class="block">Events</a>
-            <a href="#services" class="block">Services</a>
-            <a href="#contact" class="block">Contact</a>
-            <a href="#" class="block bg-black text-purple-400 px-4 py-2 rounded-full w-max">
-                Book Now
-            </a>
         </div>
     </header>
 
     <!-- ================= HERO ================= -->
-    <section id="hero" class="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 text-white py-24">
-        <div class="max-w-4xl mx-auto text-center px-6">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                Create Unforgettable Events
-            </h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-200">
-                Professional event management services for corporate, weddings,
-                conferences, and celebrations.
-            </p>
+    <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
 
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <button
-                    class="bg-black text-purple-400 px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition transform hover:-translate-y-1">
-                    Get Started
-                </button>
-                <button
-                    class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-700 transition">
-                    Learn More
-                </button>
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865"
+                class="absolute w-full h-full object-cover animate-[fade_18s_infinite]">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30"
+                class="absolute w-full h-full object-cover animate-[fade_18s_infinite_6s]">
+            <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329"
+                class="absolute w-full h-full object-cover animate-[fade_18s_infinite_12s]">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <div class="relative z-10 px-6">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Creating Unforgettable Experiences</h2>
+            <p class="mb-6 text-lg">Corporate • Weddings • Birthdays • Concerts • Catering</p>
+            <a href="#contact"
+                class="bg-white text-violet-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+                Book Now
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Tailwind Custom Animation -->
+    <style>
+        @keyframes fade {
+
+            0%,
+            100% {
+                opacity: 0
+            }
+
+            8%,
+            30% {
+                opacity: 1
+            }
+
+            38% {
+                opacity: 0
+            }
+        }
+    </style>
+
+    <!-- ================= ABOUT US ================= -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+            <div>
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" class="rounded-2xl shadow-xl">
             </div>
+
+            <div>
+                <h2 class="text-3xl font-bold text-violet-700 mb-6">About Eventora</h2>
+                <p class="mb-4 text-gray-600">
+                    Eventora is a premium event management company specializing in luxury weddings,
+                    corporate conferences, private parties, and large-scale concerts.
+                </p>
+                <p class="mb-6 text-gray-600">
+                    With creativity, precision, and flawless execution, we transform ideas into
+                    extraordinary experiences. Our team ensures every detail is handled with perfection.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-700">500+</h3>
+                        <p class="text-gray-600">Events Managed</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-700">10+</h3>
+                        <p class="text-gray-600">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- ================= EVENTS ================= -->
-    <section id="gallery" class="py-20 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-14">Our Events</h2>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Card -->
+    <!-- ================= EVENTS ================= -->
+    <section id="events" class="py-24 bg-gradient-to-b from-white to-violet-50">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-violet-700">Our Events</h2>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                We specialize in creating unforgettable experiences across various event categories.
+            </p>
+        </div>
+    
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 px-6">
+    
+            <!-- Card -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf"
+                    class="h-72 w-full object-cover group-hover:scale-110 transition duration-500">
+    
                 <div
-                    class="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2 overflow-hidden">
-                    <div
-                        class="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white text-5xl">
-                        <i class="fas fa-ring"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Wedding Ceremonies</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Elegant and personalized wedding events with full planning.
-                        </p>
-                        <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">
-                            Premium
-                        </span>
-                    </div>
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-white text-center p-6">
+                    <h3 class="text-xl font-bold mb-2">Luxury Weddings</h3>
+                    <p class="text-sm mb-4">Elegant & memorable celebrations.</p>
+                    <button
+                        class="bg-white text-violet-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
+                        View Details
+                    </button>
                 </div>
-
-                <div
-                    class="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2 overflow-hidden">
-                    <div
-                        class="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white text-5xl">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Corporate Events</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Professional conferences and business gatherings.
-                        </p>
-                        <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">
-                            Professional
-                        </span>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2 overflow-hidden">
-                    <div
-                        class="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white text-5xl">
-                        <i class="fas fa-birthday-cake"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Birthday Parties</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Memorable birthday celebrations for all age groups.
-                        </p>
-                        <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">
-                            Popular
-                        </span>
-                    </div>
-                </div>
-
             </div>
+    
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+                    class="h-72 w-full object-cover group-hover:scale-110 transition duration-500">
+    
+                <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-white text-center p-6">
+                    <h3 class="text-xl font-bold mb-2">Corporate Events</h3>
+                    <p class="text-sm mb-4">Professional & impactful experiences.</p>
+                    <button
+                        class="bg-white text-violet-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
+                        View Details
+                    </button>
+                </div>
+            </div>
+    
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3"
+                    class="h-72 w-full object-cover group-hover:scale-110 transition duration-500">
+    
+                <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-white text-center p-6">
+                    <h3 class="text-xl font-bold mb-2">Birthday Parties</h3>
+                    <p class="text-sm mb-4">Fun-filled themed celebrations.</p>
+                    <button
+                        class="bg-white text-violet-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
+                        View Details
+                    </button>
+                </div>
+            </div>
+    
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2"
+                    class="h-72 w-full object-cover group-hover:scale-110 transition duration-500">
+    
+                <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-white text-center p-6">
+                    <h3 class="text-xl font-bold mb-2">Live Concerts</h3>
+                    <p class="text-sm mb-4">High-energy music experiences.</p>
+                    <button
+                        class="bg-white text-violet-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
+                        View Details
+                    </button>
+                </div>
+            </div>
+    
         </div>
     </section>
 
+
     <!-- ================= SERVICES ================= -->
-    <section id="services" class="py-20 bg-purple-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-14">Our Services</h2>
+    <!-- ================= SERVICES ================= -->
+    <section id="services" class="py-24 bg-gradient-to-r from-violet-100 to-purple-200">
+    
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-violet-700">Our Services</h2>
+            <p class="text-gray-700 mt-4 max-w-2xl mx-auto">
+                Comprehensive event solutions tailored to your needs.
+            </p>
+        </div>
+    
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 px-6">
+    
+            <!-- CARD -->
+            <div class="group p-8 rounded-2xl text-center bg-white shadow-lg
+                    transition-all duration-500 ease-in-out
+                    hover:bg-gradient-to-br hover:from-violet-600 hover:to-purple-700
+                    hover:-translate-y-4 hover:shadow-2xl">
+    
+                <!-- ICON -->
+                <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center 
+                      rounded-full bg-violet-600 text-white text-2xl
+                      transition-all duration-500
+                      group-hover:bg-white
+                      group-hover:text-violet-700
+                      group-hover:scale-110
+                      group-hover:rotate-12">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+    
+                <!-- TITLE -->
+                <h3 class="font-bold text-lg mb-3 transition-colors duration-500 group-hover:text-white">
+                    Event Planning
+                </h3>
+    
+                <!-- DESCRIPTION -->
+                <p class="text-sm text-gray-600 transition-colors duration-500 group-hover:text-gray-200">
+                    Strategic planning and creative concepts tailored to your vision.
+                </p>
+            </div>
+    
+    
+            <!-- CARD 2 -->
+            <div class="group p-8 rounded-2xl text-center bg-white shadow-lg
+                    transition-all duration-500 ease-in-out
+                    hover:bg-gradient-to-br hover:from-violet-600 hover:to-purple-700
+                    hover:-translate-y-4 hover:shadow-2xl">
+    
+                <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center 
+                      rounded-full bg-violet-600 text-white text-2xl
+                      transition-all duration-500
+                      group-hover:bg-white
+                      group-hover:text-violet-700
+                      group-hover:scale-110
+                      group-hover:rotate-12">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+    
+                <h3 class="font-bold text-lg mb-3 transition-colors duration-500 group-hover:text-white">
+                    Venue Management
+                </h3>
+    
+                <p class="text-sm text-gray-600 transition-colors duration-500 group-hover:text-gray-200">
+                    Premium venue selection and seamless coordination.
+                </p>
+            </div>
+    
+    
+            <!-- CARD 3 -->
+            <div class="group p-8 rounded-2xl text-center bg-white shadow-lg
+                    transition-all duration-500 ease-in-out
+                    hover:bg-gradient-to-br hover:from-violet-600 hover:to-purple-700
+                    hover:-translate-y-4 hover:shadow-2xl">
+    
+                <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center 
+                      rounded-full bg-violet-600 text-white text-2xl
+                      transition-all duration-500
+                      group-hover:bg-white
+                      group-hover:text-violet-700
+                      group-hover:scale-110
+                      group-hover:rotate-12">
+                    <i class="fas fa-music"></i>
+                </div>
+    
+                <h3 class="font-bold text-lg mb-3 transition-colors duration-500 group-hover:text-white">
+                    Entertainment
+                </h3>
+    
+                <p class="text-sm text-gray-600 transition-colors duration-500 group-hover:text-gray-200">
+                    DJs, live bands, performers, and immersive experiences.
+                </p>
+            </div>
+    
+    
+            <!-- CARD 4 -->
+            <div class="group p-8 rounded-2xl text-center bg-white shadow-lg
+                    transition-all duration-500 ease-in-out
+                    hover:bg-gradient-to-br hover:from-violet-600 hover:to-purple-700
+                    hover:-translate-y-4 hover:shadow-2xl">
+    
+                <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center 
+                      rounded-full bg-violet-600 text-white text-2xl
+                      transition-all duration-500
+                      group-hover:bg-white
+                      group-hover:text-violet-700
+                      group-hover:scale-110
+                      group-hover:rotate-12">
+                    <i class="fas fa-utensils"></i>
+                </div>
+    
+                <h3 class="font-bold text-lg mb-3 transition-colors duration-500 group-hover:text-white">
+                    Premium Catering
+                </h3>
+    
+                <p class="text-sm text-gray-600 transition-colors duration-500 group-hover:text-gray-200">
+                    Customized gourmet menus and luxury dining experiences.
+                </p>
+            </div>
+    
+        </div>
+    </section>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
 
-                <div
-                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
-                    <i class="fas fa-microphone text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Event Hosting</h3>
-                    <p class="text-gray-600 text-sm">
-                        Professional hosting to ensure smooth event execution.
-                    </p>
+    <!-- ================= REVIEWS ================= -->
+    <section id="reviews" class="py-20 bg-gradient-to-r from-purple-50 to-violet-100 overflow-hidden">
+        <h2 class="text-3xl font-bold text-center text-violet-700 mb-12">Google Reviews</h2>
+
+        <div class="relative w-full overflow-hidden">
+            <div id="reviewSlider" class="flex gap-8 px-6 transition-transform duration-700">
+
+                <div class="min-w-[300px] bg-white/40 backdrop-blur-lg p-6 rounded-xl shadow-xl text-center">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                        class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="italic mb-2">"Amazing wedding management!"</p>
+                    <div class="text-yellow-400">★★★★★</div>
+                    <h4 class="mt-2 font-semibold">Riya Sharma</h4>
                 </div>
 
-                <div
-                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
-                    <i class="fas fa-utensils text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Catering</h3>
-                    <p class="text-gray-600 text-sm">
-                        Premium catering services with customized menus.
-                    </p>
-                </div>
-
-                <div
-                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
-                    <i class="fas fa-music text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Entertainment</h3>
-                    <p class="text-gray-600 text-sm">
-                        DJs, live bands and performers for unforgettable events.
-                    </p>
+                <div class="min-w-[300px] bg-white/40 backdrop-blur-lg p-6 rounded-xl shadow-xl text-center">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg"
+                        class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="italic mb-2">"Best corporate event team!"</p>
+                    <div class="text-yellow-400">★★★★★</div>
+                    <h4 class="mt-2 font-semibold">Aman Verma</h4>
                 </div>
 
             </div>
@@ -181,41 +338,113 @@
     </section>
 
     <!-- ================= CONTACT ================= -->
-    <section id="contact" class="py-20 bg-gradient-to-r from-purple-600 to-purple-800 text-white">
-        <div class="max-w-xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-10">Contact Us</h2>
-
-            <form class="space-y-6">
-                <input type="text" placeholder="Your Name"
-                    class="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
-
-                <input type="email" placeholder="Your Email"
-                    class="w-full p-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400">
-
-                <textarea placeholder="Your Message"
-                    class="w-full p-3 rounded-lg text-gray-800 h-32 focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
-
-                <button
-                    class="w-full bg-black text-purple-400 py-3 rounded-full font-semibold hover:bg-gray-800 transition">
-                    Send Message
-                </button>
-            </form>
-        </div>
+    <section id="contact" class="py-20 bg-violet-700 text-white text-center">
+        <h2 class="text-3xl font-bold mb-6">Book Your Event</h2>
+        <form class="max-w-lg mx-auto space-y-4 px-6">
+            <input type="text" placeholder="Your Name" class="w-full p-3 rounded text-black">
+            <input type="email" placeholder="Your Email" class="w-full p-3 rounded text-black">
+            <select class="w-full p-3 rounded text-black">
+                <option>Wedding</option>
+                <option>Corporate</option>
+                <option>Birthday</option>
+                <option>Concert</option>
+                <option>Catering</option>
+            </select>
+            <textarea placeholder="Message" class="w-full p-3 rounded text-black"></textarea>
+            <button class="bg-white text-violet-700 px-6 py-3 rounded-full hover:bg-gray-200 transition">
+                Submit
+            </button>
+        </form>
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-black text-gray-400 py-6 text-center">
-        © 2026 EventHub. All Rights Reserved.
-    </footer>
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gradient-to-r from-violet-900 to-purple-900 text-gray-300 pt-16 pb-8">
 
-    <!-- ================= SCRIPT ================= -->
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+
+        <!-- Company Info -->
+        <div>
+            <h3 class="text-white text-2xl font-bold mb-4">Eventora</h3>
+            <p class="text-sm leading-relaxed mb-4">
+                Eventora is a premium event management company specializing in luxury weddings,
+                corporate conferences, concerts, and private celebrations across India.
+            </p>
+            <div class="flex space-x-4 text-xl mt-4">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4 class="text-white font-semibold text-lg mb-4">Quick Links</h4>
+            <ul class="space-y-3 text-sm">
+                <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                <li><a href="#events" class="hover:text-white transition">Our Events</a></li>
+                <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                <li><a href="#reviews" class="hover:text-white transition">Reviews</a></li>
+                <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+            <h4 class="text-white font-semibold text-lg mb-4">Our Services</h4>
+            <ul class="space-y-3 text-sm">
+                <li>Luxury Weddings</li>
+                <li>Corporate Events</li>
+                <li>Concert Management</li>
+                <li>Birthday Parties</li>
+                <li>Premium Catering</li>
+            </ul>
+        </div>
+
+        <!-- Contact & Newsletter -->
+        <div>
+            <h4 class="text-white font-semibold text-lg mb-4">Contact Us</h4>
+            <p class="text-sm mb-2">📍 Mumbai, India</p>
+            <p class="text-sm mb-2">📞 +91 99999 99999</p>
+            <p class="text-sm mb-4">✉ info@eventora.com</p>
+
+            <h4 class="text-white font-semibold text-lg mb-3 mt-6">Newsletter</h4>
+            <div class="flex">
+                <input type="email" placeholder="Your Email"
+                    class="w-full px-3 py-2 rounded-l-lg text-black focus:outline-none">
+                <button class="bg-violet-600 px-4 py-2 rounded-r-lg hover:bg-violet-500 transition">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-violet-700 mt-12 pt-6 text-center text-sm text-gray-400">
+        © 2026 Eventora. All Rights Reserved. | Designed by Eventora Team
+    </div>
+
+</footer>
+
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919999999999"
+        class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
     <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
+        const slider = document.getElementById("reviewSlider");
+        let scrollAmount = 0;
+        setInterval(() => {
+            scrollAmount += 320;
+            if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+                scrollAmount = 0;
+            }
+            slider.style.transform = `translateX(-${scrollAmount}px)`;
+        }, 3000);
     </script>
 
 </body>
