@@ -9,10 +9,9 @@ const login = () => {
                     <h1 className="mb-2 text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
                         Code Bridge
                     </h1>
-                    <p className="text-slate-400 text-sm">Professional Code Conversion Platform</p>
-                </div>
+                                    </div>
                 <h2 className="mb-6 text-center text-2xl font-bold text-purple-300 md:mb-8 lg:text-3xl">
-                    Welcome Back
+                   LOGIN
                 </h2>
                 <form className="mx-auto max-w-lg rounded-lg border border-purple-500 bg-slate-900 shadow-lg shadow-purple-500/20">
                     <div className="flex flex-col gap-4 p-4 md:p-8">
