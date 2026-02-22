@@ -1,6 +1,6 @@
 import React from 'react'
 
-const pricing = () => {
+const Pricing = () => {
   return (
     <div>
           {/* Comparison Table */}
@@ -1537,4 +1537,4 @@ const pricing = () => {
   )
 }
 
-export default pricing
+export default Pricing

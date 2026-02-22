@@ -1,6 +1,7 @@
+import Mybutton from '@/components/Mybutton'
 import React from 'react'
 
-const login = () => {
+const Login = () => {
     return (
 
         <div className="bg-slate-950 py-6 sm:py-8 lg:py-12 min-h-screen">
@@ -107,6 +108,8 @@ const login = () => {
                                 Create Account
                             </a>
                         </p>
+                        <Mybutton dis={true}>Click Here</Mybutton>
+                        <Mybutton>Submit</Mybutton>
                     </div>
                 </form>
             </div>
@@ -116,4 +119,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login
