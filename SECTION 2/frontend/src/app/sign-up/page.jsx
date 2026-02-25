@@ -1,8 +1,40 @@
+'use client'
+import { useFormik } from 'formik'
 import React from 'react'
+import * as Yup from 'yup';
+
+const signupSchema = Yup.object().shape({
+    name: Yup.string().required('Name to likho')
+        .min(3, 'Too short'),
+    email : Yup.string().required('Email to likho')
+        .email('Email not valid'),
+    password: Yup.string().required('Password is required')
+        .min(8,"Too Short")
+        .matches(/[A-Z]/, 'uppercase letter is required')
+        .matches(/[a-z]/, 'lowercase letter is required')
+        .matches(/[0-9]/, 'Number is required')
+        
+});
 
 const SignUp = () => {
+
+    const signupForm = useFormik({
+        initialValues : {
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+        },
+        onSubmit: (values) => {
+            console.log(values);
+
+            // Send  values to backend
+            
+        }
+    })
+
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4">
             <div className="bg-card border border-card-line rounded-2xl shadow-lg max-w-md w-full">
                 {/* Sign Up */}
                 <div className="p-6 sm:p-8">
@@ -30,13 +62,43 @@ const SignUp = () => {
                         <div className="py-5 flex items-center text-xs font-semibold text-muted-foreground uppercase before:flex-1 before:border-t-2 before:border-line-2 before:me-4 after:flex-1 after:border-t-2 after:border-line-2 after:ms-4">Or</div>
 
                         {/* Form */}
-                        <form className="space-y-5">
+                        <form onSubmit={signupForm.handleSubmit}
+                        className="space-y-5">
                             <div className="space-y-5">
+                                {/* Form Group */}
+                                <div>
+                                    <label htmlFor="name" className="block text-sm font-semibold mb-2.5 text-foreground">Full Name</label>
+                                    <div className="relative">
+                                        <input type="text"
+                                         id="name"
+                                         onChange={signupForm.handleChange}
+                                         value={signupForm.values.name}
+                                         placeholder="Enter Your Full Name" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none" aria-describedby="email-error" />
+                                        <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+                                            <svg className="size-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    {
+                                        ( signupForm.errors.name && signupForm.touched.name) && (
+
+                                       
+                                    
+                                    <p className="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p>
+                                    }   
+                                    </div>
+                                {/* End Form Group */}
+
                                 {/* Form Group */}
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-semibold mb-2.5 text-foreground">Email address</label>
                                     <div className="relative">
-                                        <input type="email" id="email" name="email" placeholder="you@example.com" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none" required aria-describedby="email-error" />
+                                        <input type="email"
+                                         id="email" 
+                                         onChange={signupForm.handleChange}
+                                         value={signupForm.values.email}
+                                        placeholder="you@example.com" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none" aria-describedby="email-error" />
                                         <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg className="size-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
@@ -51,7 +113,11 @@ const SignUp = () => {
                                 <div>
                                     <label htmlFor="password" className="block text-sm font-semibold mb-2.5 text-foreground">Password</label>
                                     <div className="relative">
-                                        <input type="password" id="password" name="password" placeholder="Enter your password" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none" required aria-describedby="password-error" />
+                                        <input type="password" 
+                                        id="password"
+                                        onChange={signupForm.handleChange}
+                                        value={signupForm.values.password}
+                                         placeholder="Enter your password" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none" aria-describedby="password-error" />
                                         <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg className="size-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
@@ -66,7 +132,11 @@ const SignUp = () => {
                                 <div>
                                     <label htmlFor="confirm-password" className="block text-sm font-semibold mb-2.5 text-foreground">Confirm Password</label>
                                     <div className="relative">
-                                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none" required aria-describedby="confirm-password-error" />
+                                        <input type="password" 
+                                        id="confirmPassword" 
+                                        onChange={signupForm.handleChange}
+                                        value={signupForm.values.confirmPassword} 
+                                        placeholder="Confirm your password" className="py-3 sm:py-3.5 px-4 block w-full bg-layer border-2 border-layer-line rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all disabled:opacity-50 disabled:pointer-events-none"  aria-describedby="confirm-password-error" />
                                         <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg className="size-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />

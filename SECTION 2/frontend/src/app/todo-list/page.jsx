@@ -70,9 +70,32 @@ const TodoList = () => {
                             TaskList.map((obj, index)=>{
                                 return <div key= {index}
                                 className='border border-gray-400 p-4 rounded-lg mb-4 flex justify-between items-center'>
-                                    
-                                    
+                                 
+                                    <div className='flex gap-3 w-1/3'>
+                                        <input type='checkbox' 
+                                            onChange={(e) => {
+                                                const temp = TaskList;
+                                                temp[index].completed = e.target.checked;
+                                                setTaskList([...temp]);
+                                            }}
+                                        />
+
                                     <p className='text-lg'>{obj.task}</p>
+                                    </div>
+
+                                    {
+                                        obj.completed ? (
+                                            <p className='bg-green-200 text-green-800 font-semibold
+                                                 px-2 rounded-full
+                                                '>Completed</p>
+                                        ) : (
+                                                <p className='bg-amber-200 text-amber-800 font-semibold
+                                                 px-2 rounded-full
+                                                '>Pending</p>
+                                            )
+                                      
+                                    }
+
                                     <button
                                         onClick={ () => {deleteTask(indes)}}
                                         className='bg-red-500 text-white p-2 rounded-md '>
