@@ -4,6 +4,9 @@ const router = express.Router();
 
 const Model = require('../models/UserModels');
 
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 // route or endpoint
 router.post('/add', (req, res) => {
 
@@ -55,18 +58,70 @@ router.get('/getbycity/:city', (req, res) => {
 
 
 // delete
-router.get('/delete', (req, res) => {
-    res.send('response from user delete');
+router.delete('/delete/:id', (req, res) => {
+    Model.findByIdAndDelete(req.params.id)
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // update
-router.get('/update', (req, res) => {
-    res.send('response from user update');
+router.put('/update/:id', (req, res) => {
+    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // getby id
-router.get('/getbyid', (req, res) => {
-    res.send('response from user getbyid');
+    router.get('/getbyid/:id', (req, res) => {
+        Model.findById(req.params.id)
+            .then((result) => {
+                res.status(200).json(result);
+            }).catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
 });
 
+router.post('/authenticate', (req, res) => {
+    const { email, password } = req.body;
+
+    Model.findOne({ email, password })
+        .then((result) => {
+            // if login is successful
+            if (result) {
+              
+                const { _id , email } = result;
+
+                jwt.sign(
+                    {_id, email},
+                    process.env.JWT_SECRET,
+                    { expiresIn: '1h' },
+                    (err, token) => {
+                        if (err) {
+                            console.log(err);
+                            res.status(500).json(err);
+                        } else {
+                            res.status(200).json({ token });
+                        }
+                    }
+                );
+            } else {
+                // if login fails
+                res.status(403).json({ message: 'Invalid credentials' });
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+
+});
 module.exports = router;
